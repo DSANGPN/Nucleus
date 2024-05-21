@@ -12,7 +12,7 @@ _All developers are expected to follow the same outlined development cycle._
 6. This is a temendous amount of red tape, however this is industry standard and will create a highly reliable, easily debuggable, robust system. We have a comfortable amount of time to develop and polish features, and getting in these habits will adequately prepare you for the industry.
 
 ## Automated pipelines
-Automated pipelines (or [Actions](https://github.com/Uakronauts/LCP-GUI/actions)) are an event that will run on certain events associated with the git repository. For example, at the time of writing this, we have an automated build/test pipeline that runs when creating a PR and pushing to main (see [Test](https://github.com/Uakronauts/LCP-GUI/actions/workflows/test.yml))
+Automated pipelines (or [Actions](https://github.com/DSANGPN/Nucleus/actions)) are an event that will run on certain events associated with the git repository. For example, at the time of writing this, we have an automated build/test pipeline that runs when creating a PR and pushing to main (see [Test](https://github.com/DSANGPN/Nucleus/actions/workflows/test.yml))
 
 # Commands
 ## Install

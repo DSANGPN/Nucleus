@@ -1,12 +1,10 @@
 {
-  "name": "lcp-gui",
+  "name": "nucleus",
   "version": "0.0.0",
-  "description": "GUI for easy control, observation, and analysis of data from the LCP firmware. Built using node.js, using React.js and TypeScript.",
+  "description": "",
   "license": "MIT",
   "author": {
-    "name": "Akronauts Rocket Design Team",
-    "email": "uakronauts@gmail.com",
-    "url": "https://akronauts.org"
+    "name": "Aaron Hoffman"
   },
   "main": "./dist/main/main.js",
   "scripts": {

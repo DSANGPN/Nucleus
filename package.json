@@ -1,37 +1,14 @@
 {
-  "description": "GUI for easy control, observation, and analysis of data from the LCP firmware. Built using node.js, using React.js and TypeScript.",
-  "keywords": [
-    "electron",
-    "boilerplate",
-    "react",
-    "typescript",
-    "ts",
-    "sass",
-    "webpack",
-    "hot",
-    "reload"
-  ],
-  "homepage": "https://github.com/Uakronauts/LCP-GUI",
-  "bugs": {
-    "url": "https://github.com/Uakronauts/LCP-GUI/issues"
-  },
+  "description": "",
+  "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Uakronauts/LCP-GUI.git"
+    "url": "git+github.com:DSANGPN/Nucleus.git"
   },
   "license": "MIT",
   "author": {
-    "name": "Akronauts Rocket Design Team",
-    "email": "uakronauts@gmail.com",
-    "url": "https://akronauts.org"
+    "name": "Aaron Hoffman"
   },
-  "contributors": [
-    {
-      "name": "Aaron Hoffman",
-      "email": "ajh269@uakron.edu",
-      "url": "https://github.com/aahoffman23"
-    }
-  ],
   "main": "./src/main/main.ts",
   "scripts": {
     "build": "concurrently \"npm run build:main\" \"npm run build:renderer\"",
@@ -105,6 +82,7 @@
   "devDependencies": {
     "@electron/notarize": "^1.2.3",
     "@electron/rebuild": "^3.2.13",
+    "@fluentui/react": "^8.110.8",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
     "@svgr/webpack": "^8.0.1",
     "@teamsupercell/typings-for-css-modules-loader": "^2.5.2",
@@ -112,14 +90,13 @@
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.2",
     "@types/node": "20.2.5",
-    "@types/react": "^18.2.8",
+    "@types/react": "^18.3.2",
     "@types/react-dom": "^18.2.4",
     "@types/react-test-renderer": "^18.0.0",
     "@types/terser-webpack-plugin": "^5.0.4",
     "@types/webpack-bundle-analyzer": "^4.6.0",
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",
-    "@fluentui/react": "^8.110.8",
     "browserslist-config-erb": "^0.0.3",
     "chalk": "^4.1.2",
     "concurrently": "^8.1.0",
@@ -171,8 +148,8 @@
     "webpack-merge": "^5.9.0"
   },
   "build": {
-    "productName": "LCP-GUI",
-    "appId": "lcp.gui",
+    "productName": "Nucleus",
+    "appId": "nucleus",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
@@ -230,8 +207,8 @@
     ],
     "publish": {
       "provider": "github",
-      "owner": "Uakronauts",
-      "repo": "LCP-GUI"
+      "owner": "DSANGPN",
+      "repo": "Nucleus"
     }
   },
   "devEngines": {
