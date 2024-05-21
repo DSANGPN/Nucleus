@@ -13,10 +13,10 @@
   "author": "Aaron Hoffman",
   "license": "MIT",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
     "electron": "^28.1.0",
-    "eslint": "^7.32.0",
+    "eslint": "^8.56.0",
     "typescript": "^4.8.3"
   },
   "dependencies": {}
