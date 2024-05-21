@@ -1,14 +1,31 @@
-// All of the Node.js APIs are available in the preload process.
-// It has the same sandbox as a Chrome extension.
-window.addEventListener("DOMContentLoaded", () => {
-  const replaceText = (selector: string, text: string) => {
-    const element = document.getElementById(selector);
-    if (element) {
-      element.innerText = text;
-    }
-  };
+import * as fs from 'fs';
+import * as path from 'path';
 
-  for (const type of ["chrome", "node", "electron"]) {
-    replaceText(`${type}-version`, process.versions[type as keyof NodeJS.ProcessVersions]);
-  }
+// Recursively get all files from a starting directory
+const getAllFiles = (dir: string): string[] => {
+  const files: string[] = [];
+
+  fs.readdirSync(dir).forEach(file => {
+    const filePath = path.join(dir, file);
+    if (fs.statSync(filePath).isDirectory()) {
+      files.push(...getAllFiles(filePath));
+    } else {
+      files.push(filePath);
+    }
+  });
+
+  return files;
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    let rendererScriptsDiv = document.getElementById("rendererScripts");
+    const allFiles = getAllFiles('./dist/renderer');
+    allFiles.forEach(filePath => {
+      const isJSExtension = filePath.split(".").pop() === "js";
+      if(isJSExtension) {
+        let rendererScriptElement = document.createElement("script");
+        rendererScriptElement.src = filePath;
+        rendererScriptsDiv.appendChild(rendererScriptElement);
+      }
+    });
 });
