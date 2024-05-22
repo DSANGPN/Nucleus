@@ -1,26 +1,16 @@
 // Driver for displaying something.
 // In general, all components should be in organized directories
 
-import * as React from 'react';
-import { useState } from 'react';
-import { DefaultButton } from '@fluentui/react';
+import { Counter } from 'components/Counter';
+import { Hello } from 'components/Hello';
 
-function Hello() {
-  return <h1>Hello!</h1>;
-}
+export function Home() {
 
-export default function Home() {
-  const [num, setNum] = useState(0);
-
-  const handleClick = () => {
-    setNum(num + 1);
-  };
 
   return (
     <>
       <Hello />
-      <DefaultButton text="Standard Butt" onClick={handleClick} />
-      <h1>{num}</h1>
+      <Counter />
     </>
   );
 }
