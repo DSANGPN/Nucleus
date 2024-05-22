@@ -13,7 +13,14 @@ module.exports = {
     '@typescript-eslint/no-shadow': 'error',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
+    endOfLine: 'off',
   },
+  prettier/prettier: [
+    "error",
+    {
+      "endOfLine": "auto"
+    }
+  ],
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
