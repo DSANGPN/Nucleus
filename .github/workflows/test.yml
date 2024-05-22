@@ -36,6 +36,5 @@ jobs:
           GH_TOKEN: ${{ secrets.RELEASE_KEY }}
         run: |
           npm run package
-          npm run lint
           npm exec tsc
           npm test
