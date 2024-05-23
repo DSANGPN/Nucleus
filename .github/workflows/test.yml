@@ -13,47 +13,50 @@ on:
 jobs:
   git-checkout:
     runs-on: windows-latest
-    uses: actions/checkout@v3
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
   install-node:
     needs: git-checkout
-
     runs-on: windows-latest
-    uses: actions/setup-node@v3
-    with:
-      node-version: 18
-      cache: npm
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
 
   npm-install:
     needs: install-node
-
     runs-on: windows-latest
-    run: |
-      npm install
+    steps:
+      - name: Install npm dependencies
+        run: npm install
 
   package:
     needs: npm-install
-
     runs-on: windows-latest
     env:
       GH_TOKEN: ${{ secrets.RELEASE_KEY }}
-    run: |
-      npm run package
+    steps:
+      - name: Run package script
+        run: npm run package
 
   typescript-compile:
     needs: npm-install
-
-    runs-on: windows-latest
-    env:
-        GH_TOKEN: ${{ secrets.RELEASE_KEY }}
-      run: |
-        npm exec tsc
-
-  test:
-    needs: npm-install
-
     runs-on: windows-latest
     env:
       GH_TOKEN: ${{ secrets.RELEASE_KEY }}
-    run: |
-      npm test
+    steps:
+      - name: Compile TypeScript
+        run: npm exec tsc
+
+  test:
+    needs: npm-install
+    runs-on: windows-latest
+    env:
+      GH_TOKEN: ${{ secrets.RELEASE_KEY }}
+    steps:
+      - name: Run tests
+        run: npm test
