@@ -11,27 +11,49 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  git-checkout:
     runs-on: windows-latest
+    uses: actions/checkout@v3
 
-    steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v3
+  install-node:
+    needs: git-checkout
 
-      - name: Install Node.js and NPM
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: npm
+    runs-on: windows-latest
+    uses: actions/setup-node@v3
+    with:
+      node-version: 18
+      cache: npm
 
-      - name: npm install
-        run: |
-          npm install
+  npm-install:
+    needs: install-node
 
-      - name: npm test
-        env:
-          GH_TOKEN: ${{ secrets.RELEASE_KEY }}
-        run: |
-          npm run package
-          npm exec tsc
-          npm test
+    runs-on: windows-latest
+    run: |
+      npm install
+
+  package:
+    needs: npm-install
+
+    runs-on: windows-latest
+    env:
+      GH_TOKEN: ${{ secrets.RELEASE_KEY }}
+    run: |
+      npm run package
+
+  typescript-compile:
+    needs: npm-install
+
+    runs-on: windows-latest
+    env:
+        GH_TOKEN: ${{ secrets.RELEASE_KEY }}
+      run: |
+        npm exec tsc
+
+  test:
+    needs: npm-install
+
+    runs-on: windows-latest
+    env:
+      GH_TOKEN: ${{ secrets.RELEASE_KEY }}
+    run: |
+      npm test
