@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  workflow-dispatch
+on: workflow-dispatch
 
 jobs:
   publish:
