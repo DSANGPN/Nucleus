@@ -2,12 +2,14 @@
 // In general, all components should be in organized directories
 import Counter from 'components/Counter';
 import Hello from 'components/Hello';
+import Version from 'components/Version';
 
 export default function Home() {
   return (
     <>
       <Hello />
       <Counter />
+      <Version />
     </>
   );
 }
