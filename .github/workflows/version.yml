@@ -1,26 +1,19 @@
-name: Version
+name: Version Increment
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   version:
-    runs-on: windows-latest
-
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Git credentials
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Increment Minor version number
-        env:
-          GH_TOKEN: ${{ secrets.RELEASE_KEY }}
-        run: |
-          git stash
-          npm version minor -m "[ci skip]"
-          git stash pop
-          git push https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }} HEAD:${{ github.ref }}
+      - uses: actions/checkout@v2
+      - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - run: git config user.name "$GITHUB_ACTOR"
+      - run: npm version minor -m "v%s"
+      - run: VERSION=$(node -p "require('./package.json').version")
+      - run: git tag ${VERSION}
+      - run: git push "https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --follow-tags
+      - run: git push "https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --tags
