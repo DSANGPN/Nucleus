@@ -23,7 +23,7 @@ jobs:
 
       - name: Get new version
         id: get_version
-        run: echo "VERSION=$(node -p \"require('./package.json').version\")" >> $GITHUB_ENV
+        run: echo VERSION=$(node -p "require('./package.json').version")
 
       - name: Create and push new tag
         env:
