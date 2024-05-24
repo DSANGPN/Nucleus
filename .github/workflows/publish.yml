@@ -22,14 +22,14 @@ jobs:
           npm run postinstall
           npm run build
 
-      - name: Update patch number
-        env:
-          GH_TOKEN: ${{ secrets.RELEASE_KEY }}
-        run: |
-          git stash
-          npm version patch
-          git stash pop
-          git push
+      # - name: Update patch number
+      #   env:
+      #     GH_TOKEN: ${{ secrets.RELEASE_KEY }}
+      #   run: |
+      #     git stash
+      #     npm version patch
+      #     git stash pop
+      #     git push
 
       - name: Publish releases
         env:
