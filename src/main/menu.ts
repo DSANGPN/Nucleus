@@ -213,6 +213,7 @@ export default class MenuBuilder {
       {
         label: '&View',
         submenu:
+          true ||
           process.env.NODE_ENV === 'development' ||
           process.env.DEBUG_PROD === 'true'
             ? [
