@@ -5,6 +5,8 @@ on:
 
 jobs:
   increment-version:
+    runs-on: windows-latest
+
     steps:
       - name: Increment Minor version number
       env:
