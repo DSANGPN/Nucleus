@@ -1,0 +1,16 @@
+name: Version
+
+on:
+  workflow_dispatch:
+
+jobs:
+  increment-version:
+    steps:
+      - name: Increment Minor version number
+      env:
+        GH_TOKEN: ${{ secrets.RELEASE_KEY }}
+      run: |
+        git stash
+        npm version minor
+        git stash pop
+        git push
