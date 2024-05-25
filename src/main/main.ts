@@ -31,6 +31,28 @@ ipcMain.on('ipc-example', async (event, arg) => {
   event.reply('ipc-example', msgTemplate('pong'));
 });
 
+// reads app version specified in package.json and sends to main window
+ipcMain.on('app-version', (event) => {
+  event.sender.send('app-version', { version: app.getVersion() });
+});
+
+// if update is available send a signal over to the web side
+autoUpdater.on('update-available', () => {
+  console.log('Update available');
+  mainWindow?.webContents.send('update_available');
+});
+
+// if update is downloaded send a signal over to the web side
+autoUpdater.on('update-downloaded', () => {
+  console.log('Update downloaded');
+  mainWindow?.webContents.send('update_downloaded');
+});
+
+// Restart and install the app
+ipcMain.on('restart_app', () => {
+  autoUpdater.quitAndInstall();
+});
+
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
   sourceMapSupport.install();
