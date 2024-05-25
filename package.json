@@ -3,7 +3,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git+github.com:DSANGPN/Nucleus.git"
+    "url": "https://github.com:DSANGPN/Nucleus.git"
   },
   "license": "MIT",
   "author": {
@@ -148,7 +148,7 @@
   },
   "build": {
     "productName": "Nucleus",
-    "appId": "nucleus",
+    "appId": "dsangpn.nucleus",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
@@ -221,5 +221,5 @@
     ],
     "logLevel": "quiet"
   },
-  "version": "0.0.3"
+  "version": "0.0.5"
 }

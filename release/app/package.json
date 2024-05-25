@@ -1,10 +1,12 @@
 {
   "name": "nucleus",
-  "version": "0.0.3",
-  "description": "",
+  "description": "Data viewing and analysis platform",
+  "version": "0.0.5",
   "license": "MIT",
   "author": {
-    "name": "Aaron Hoffman"
+    "name": "Aaron Hoffman",
+    "email": "aaronhoffman235@gmail.com",
+    "url": "https://github.com/DSANGPN/Nucleus"
   },
   "main": "./dist/main/main.js",
   "scripts": {
