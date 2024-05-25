@@ -1,7 +1,7 @@
 {
   "name": "nucleus",
   "description": "Data viewing and analysis platform",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "license": "MIT",
   "author": {
     "name": "Aaron Hoffman",
