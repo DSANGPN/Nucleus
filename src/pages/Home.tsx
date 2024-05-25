@@ -3,6 +3,7 @@
 import Counter from 'components/Counter';
 import Hello from 'components/Hello';
 import Version from 'components/Version';
+import AutoUpdater from 'components/AutoUpdater';
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Hello />
       <Counter />
       <Version />
+      <AutoUpdater />
     </>
   );
 }
